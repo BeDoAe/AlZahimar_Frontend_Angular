@@ -1,0 +1,25 @@
+<div class="back-arrow-container">
+  <button class="btn btn-secondary back-button mt-2" onclick="history.back()">
+    <i class="fas fa-arrow-left"></i>
+</button>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <h1 class="text-center my-1">HangMan Game</h1>
+    <div class="col-lg-6 my-5">
+      <div class="hangman">
+        <img src="assets/images/hangman-{{ countWrongAnswers }}.svg" alt="Hangman" />
+      </div>
+    </div>
+    <div class="col-lg-6 my-4">
+      <app-word-display [word]="currentWord" [correctLetters]="correctLetters"></app-word-display>
+      <h4 class="text-hint">Hint: <b>{{ hint }}</b></h4>
+      <h4 class="gusse-text" [class.text-danger]="countWrongAnswers > 0">Incorrect guesses : <b>{{ countWrongAnswers }} / {{ maxAnswers }}</b></h4>
+      <app-keyboard (letterClicked)="checkLetter($event)"></app-keyboard>
+    </div>
+  </div>
+</div>
+
+<app-game-model [gameOver]="isGameOver" [isVictory]="isVictory" [correctWord]="currentWord"
+  (playAgain)="getRandomWord()"></app-game-model>

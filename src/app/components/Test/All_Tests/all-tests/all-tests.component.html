@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2">
+    <ng-container *ngIf="tests.length > 0; else noTests">
+      <div class="col mb-4 d-flex justify-content-center" *ngFor="let test of tests">
+        <div class="card">
+          <div class="upper-part">
+            <div class="upper-part-face">
+              <h5 class="clrr fw-bold">{{ test.title }}</h5>
+            </div>
+            <div class="upper-part-back">
+              <button class="btn  clr  " (click)="takeTest(test.testId)">Take Test</button>
+            </div>
+          </div>
+          <div class="lower-part">
+            <div class="lower-part-face">
+              <p class="clrr text-Danger">Degree: {{ test.testDegree }}</p>
+            </div>
+            <div class="lower-part-back">
+              <p class="clrr text-Danger">Degree: {{ test.testDegree }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <ng-template #noTests>
+    <div class="col">
+      <div class="alert alert-info text-center">
+        No tests available.
+      </div>
+    </div>
+  </ng-template>
+</div>

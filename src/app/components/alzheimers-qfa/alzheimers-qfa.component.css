@@ -1,0 +1,23 @@
+.card-header button {
+  color: var(--main-Color);
+  text-decoration: none;
+}
+
+.card-header button:hover {
+  text-decoration: underline;
+}
+.statistics{
+    background: no-repeat center url("../../../assets/jpeg/map.jpg");
+    background-size: cover;
+    top: 80%;
+
+}
+/* .statistics::after{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(40, 2, 48, 0.263);
+} */

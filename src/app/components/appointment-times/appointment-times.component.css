@@ -1,0 +1,60 @@
+.day-column {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.day-header {
+  background-color: var(--main-Color);
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.time-slot {
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.time-slot:hover {
+  background-color: rgb(243, 222, 245);
+}
+
+.book {
+  display: block;
+  width: 100%;
+  background-color: var(--bg-Color);
+  color: rgb(19, 1, 21);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: var(--main-Color);
+  color: white;
+}
+
+
+.reserve{
+  text-align: center;
+}
+
+/* arrow Left */
+.back-button {
+  top: 20px;
+  left: 20px;
+  background-color: var(--bg-Color);
+  color: rgb(19, 1, 21);
+
+}
+
+
+
+
+
+
+
+
+

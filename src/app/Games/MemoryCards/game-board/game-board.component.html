@@ -1,0 +1,37 @@
+<!-- <div id="title2">Memory Game Fruit</div>
+
+<div id="NameBox">
+  <span id="Hello">Hello: <span>{{ playerName }}</span></span>
+  <span id="WrongTries">Wrong Tries: <span>{{ wrongTries }}</span></span>
+</div>
+
+<div class="card-grid">
+  <app-card *ngFor="let card of cards" [card]="card" (cardClicked)="onCardClicked($event)"></app-card>
+</div> -->
+<!-- <app-congratulations-popup *ngIf="memoryCardsGameService.isGameWon()" (playAgainClicked)="playAgain()"></app-congratulations-popup> -->
+
+<!-- <audio id="success" src="/assets/images/memorycards/success.mp3"></audio>
+<audio id="fail" src="/assets/images/memorycards/fail.mp3"></audio> -->
+
+<div class="back-arrow-container">
+  <button class="btn btn-secondary back-button mt-2" onclick="history.back()">
+    <i class="fas fa-arrow-left"></i>
+</button>
+</div>
+
+<div id="title2">Memory Game Fruit</div>
+
+<div id="NameBox">
+  <!-- <span id="Hello">Hello: <span>{{ playerName }}</span></span> -->
+  <span id="WrongTries">Wrong Tries: <span>{{ wrongTries }}</span></span>
+</div>
+
+<div class="card-grid">
+  <app-card *ngFor="let card of cards" [card]="card" (cardClicked)="onCardClicked($event)"></app-card>
+</div>
+
+<app-congratulations-popup *ngIf="memoryCardsGameService.isGameWon()"
+   (playAgainClicked)="playAgain()"></app-congratulations-popup>
+
+<audio id="success" src="/assets/images/memorycards/success.mp3"></audio>
+<audio id="fail" src="/assets/images/memorycards/fail.mp3"></audio>

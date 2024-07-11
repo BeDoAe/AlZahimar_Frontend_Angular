@@ -1,0 +1,56 @@
+/* Center the grid horizontally */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(4, 1fr); /* 4 rows */
+  gap: 10px; /* Adjust gap between cards */
+  max-width: 1000px; /* Adjust maximum width of the grid */
+  margin: 0 auto; /* Center align the grid */
+}
+
+#title2 {
+  font-size: 80px; /* Adjusted font size */
+  font-weight: 30px; /* Added font weight */
+  color: green;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#NameBox {
+  display: flex;
+  justify-content: space-between; /* Aligns children at the ends */
+  align-items: center;
+  background-color: rgb(184, 238, 184);
+  padding: 10px;
+  border: 2px solid black; /* Added border */
+  border-radius: 5px;
+  width: 50%; /* Adjusted width */
+  margin: 20px auto; /* Center align the box */
+}
+
+#Hello, #WrongTries {
+  font-size: 16px; /* Adjusted font size */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#success, #fail {
+  display: none; /* Ensure audio elements are hidden */
+}
+
+
+/* arrow Left */
+.back-button {
+  top: 20px;
+  left: 20px;
+  background-color: var(--bg-Color);
+  color: rgb(19, 1, 21);
+
+}

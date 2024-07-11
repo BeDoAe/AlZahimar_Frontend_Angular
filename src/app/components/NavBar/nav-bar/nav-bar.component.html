@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container d-flex justify-content-between">
+    <img class="logo" src="assets/logo.svg" alt="logo">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-controls="navbarText"
+      aria-expanded="!isNavbarCollapsed" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div [ngClass]="{'collapse': isNavbarCollapsed, 'navbar-collapse': true}" id="navbarText"
+      class="navbar-collapse collapse d-lg-flex justify-content-between">
+      <ul class="navbar-nav mb-lg-0 d-flex mr-5">
+
+        <li class="nav-item px-3">
+          <a class="nav-link active p-lg-2" routerLink="/home" routerLinkActive="bg-purpel text-light">Home</a>
+        </li>
+
+        <li *ngIf="userRole === 'Relative'" class="nav-item px-3">
+          <a class="nav-link active p-lg-2" routerLink="/browseDoctors" routerLinkActive="bg-purpel text-light">Browse
+            Doctors</a>
+        </li>
+
+        <li *ngIf="userRole === 'Admin'" class="nav-item px-3">
+          <a class="nav-link active p-lg-2" routerLink="/AdminAllTestsComponent" routerLinkActive="bg-purpel text-light">
+            Test</a>
+        </li>
+
+        <li *ngIf="userRole === 'Relative'" class="nav-item px-3">
+          <a class="nav-link p-lg-2" routerLink="/patientDashboard" routerLinkActive="bg-purpel text-light">Dasnboard</a>
+
+        </li>
+        <li *ngIf="userRole === 'Doctor'" class="nav-item px-3">
+          <a class="nav-link p-lg-2" routerLink="/DoctorDashboard" routerLinkActive="bg-purpel text-light">Dashboard</a>
+
+        </li>
+
+        <li *ngIf="userRole === 'Relative'" class="nav-item px-3">
+          <a  class="nav-link p-lg-2" routerLink="/AllTests" routerLinkActive="bg-purpel text-light">Tests</a>
+        </li>
+
+        <li *ngIf="userRole === 'Relative'" class="nav-item px-3">
+          <a  class="nav-link p-lg-2" routerLink="/AllStories" routerLinkActive="bg-purpel text-light">Stories</a>
+        </li>
+
+        <li *ngIf="userRole === 'Admin'" class="nav-item px-3">
+          <a  class="nav-link p-lg-2" routerLink="/AdminAllTestsComponent" routerLinkActive="bg-purpel text-light">Add Test</a>
+        </li>
+
+        <!-- <li class="nav-item px-3" *ngIf="!isLoggedIn">
+          <a class="nav-link p-lg-2" routerLink="/login" routerLinkActive="bg-purpel text-light">Login</a>
+        </li> -->
+        <!-- <li class="nav-item px-3">
+          <a class="nav-link p-lg-2" routerLink="/patientProfile" routerLinkActive="bg-purpel text-light">Patient</a>
+        </li> -->
+
+        <li class="nav-item px-3">
+          <a class="nav-link p-lg-2" aria-current="page" routerLink="/aboutus" >About</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link p-lg-2" aria-current="page" routerLink="/contactus">Contact
+            Us</a>
+        </li>
+      </ul>
+
+      <div class="search d-none d-lg-flex pr-5">
+        <ng-container *ngIf="userRole">
+          <i *ngIf="userRole === 'Relative'" class="fa-solid fa-magnifying-glass px-3 searchIcon clickable" routerLink="/browseDoctors"></i>
+          <ng-container *ngIf="userRole === 'Doctor'; else relativeProfile">
+            <i class="fa-regular fa-user px-3 clickable" routerLink="/doctorProfile"></i>
+          </ng-container>
+          <ng-template #relativeProfile>
+            <i class="fa-regular fa-user px-3 clickable" routerLink="/patientProfile"></i>
+          </ng-template>
+        </ng-container>
+      </div>
+
+
+    </div>
+    <button  *ngIf="!isLoggedIn"  data-bs-toggle="modal" data-bs-target="#exampleModal"
+      class="btn rounded-pill main-btn me-2">Register</button>
+    <button  *ngIf="!isLoggedIn"  routerLink="/login" class="btn rounded-pill main-btn">login</button>
+    <button *ngIf="isLoggedIn" (click)="logout()" class="btn rounded-pill main-btn">Log out</button>
+  </div>
+</nav>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Remind Me</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <p class="fw-bold text-center">Register As A..?</p>
+      <div class="modal-body d-flex justify-content-center align-items-center">
+        <div class="registerDoc btn rounded-2 main-btn me-2 w-25" routerLink="/registerDoctor" data-bs-dismiss="modal" aria-label="Close">
+          <img src="../../../../assets/jpeg/doctor.png" alt="doc" width="100%">
+          Doctor
+        </div>
+        <div class="registerPatient btn rounded-2 main-btn w-25" routerLink="/registerRelative" data-bs-dismiss="modal" aria-label="Close">
+          <img src="../../../../assets/jpeg/patient.png" alt="patient" width="100%">
+          Patient
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

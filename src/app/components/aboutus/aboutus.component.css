@@ -1,0 +1,22 @@
+.textAboutUs{
+  font-size: 20px;
+  color: gray;
+  overflow: hidden;
+word-spacing: 1% ;
+ font-weight: 400;
+ text-align: justify;
+
+}
+
+.imgAboutus
+{
+  width: 400px;
+  border-radius: 15px;
+}
+
+.titleTwo{
+  font-size: 30px;
+  font-weight: 700;
+  color: #9a8fcc;
+  text-align: center;
+}

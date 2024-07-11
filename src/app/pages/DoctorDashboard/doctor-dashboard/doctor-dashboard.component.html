@@ -1,0 +1,49 @@
+<!-- NEW Side-Bar -->
+<div class="">
+  <div class=" d-flex body">
+    <div class="col-sm-2 col-md-2  col-lg-2 sidebar">
+      <!-- <app-sidebar></app-sidebar> -->
+       <app-doctor-sidebar></app-doctor-sidebar>
+    </div>
+    <div class=" col-sm-10 col-md-10 rightContent mt-5">
+      <div class="title">
+        <p>Dashboard</p>
+      </div>
+      <div class="  flex-wrap w-100   data-info">
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="fa-regular fa-calendar icon"></i>
+          <div class="text">
+            <span>{{numberOfAcceptedAppointments}}</span>
+            <p>Accepted Appointments</p>
+          </div>
+        </div>
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="fa-regular fa-user icon"></i>
+          <div class="text flex-wrap">
+            <span>{{numberOfPatients}}</span>
+            <p>Total Patient</p>
+          </div>
+        </div>
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="fa-solid fa-id-card-clip"></i>
+          <div class="text">
+            <span>{{numberOfPendingAppointments}}</span>
+            <p>Pending Appointments</p>
+          </div>
+        </div>
+      </div>
+      <div class="row restContet mt-4">
+        
+        <div class="col-12 col-md-4 col-lg-4 appontRequest">
+          <router-outlet></router-outlet>
+        </div> 
+        <!-- <div class="col-12 col-md-4 col-lg-4 donughtChart">
+          <div class="title d-flex justify-content-between">
+            <p>Patient Tracking</p>
+          </div>
+          <app-donight-chart></app-donight-chart>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

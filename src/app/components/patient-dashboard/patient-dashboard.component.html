@@ -1,0 +1,90 @@
+<div class="total">
+  <div class="d-flex body ">
+    <div class="col-sm-10 col-md-10 rightContent mt-5">
+      <div class="title">
+        <!-- <p>Dashboard</p> -->
+      </div>
+      <div class="flex-wrap w-100 data-info">
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="fa-regular fa-calendar icon"></i>
+          <div class="dateTime">
+            <span> <div *ngIf="appointments.length > 0">
+              <ul>
+                <li *ngFor="let appointment of appointments">
+                  <p>Date: {{ appointment.date }}</p>
+                  <p>Time: {{ appointment.startTime }} - {{ appointment.endTime }}</p>
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="appointments.length === 0">
+              <p>No appointments found.</p>
+            </div>
+          </span>
+
+          </div>
+        </div>
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="unfollow-icon fa fa-user-minus" (click)="deleteDoctor()"></i>
+          <div class="text flex-wrap">
+            <div *ngIf="doctor" class=" responsibleDoctor mt-4">
+              <a [routerLink]="['/VisitedDoctorprofile', doctor.id]" class="text-decoration-none">
+                <div class="profileDetails subTitel">
+                  <p class="docname" style="color: black;">Dr: {{ doctor.fullName }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 col-md-2 col-lg-3 box">
+          <i class="fa-regular fa-clipboard"></i>
+          <div class="">
+            <p>Reports:</p>
+            <p class="count" id="count">{{ reportsCount }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row restContent mt-4">
+        <div class="col-12 col-md-6 appontRequest">
+          <div class="title d-flex justify-content-between">
+
+            <div class="test-reviews">
+              <p>Review Tests:</p>
+              <br>
+              <ul class="list-unstyled" *ngIf="testReviews.length > 0">
+                <li *ngFor="let review of testReviews">
+                  <p>{{ review.testTitle }}</p>
+                  <span>{{ review.date }}</span>
+                  <p class="me-2"><span>Degree: {{ review.testScore }}</span>/<span> {{ review.testDegree }}</span></p>
+                  <hr class="p-2">
+                </li>
+              </ul>
+              <p *ngIf="testReviews.length === 0">No test reviews found.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 appontRequest">
+          <div class="title d-flex justify-content-between">
+
+            <div class="test-reviews">
+              <p>Review Story Test:</p>
+              <br>
+              <ul class="list-unstyled" *ngIf="storyReviews.length > 0">
+                <li *ngFor="let review of storyReviews">
+                  <p>{{ review.testTitle }}</p>
+                  <span>{{ review.date }}</span>
+                  <p class="me-2"><span>Degree: {{ review.testScore }}</span>/<span> {{ review.testDegree }}</span></p>
+                  <hr class="p-2">
+                </li>
+              </ul>
+              <p *ngIf="storyReviews.length === 0">No story reviews found.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.word-disply {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-disply .letter {
+  border-bottom: 3px solid black;
+  width: 28px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.word-disply .letter.guessed {
+  border-color: transparent;
+  margin: -40px 0 20px;
+}

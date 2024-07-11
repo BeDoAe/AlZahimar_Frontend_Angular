@@ -1,0 +1,34 @@
+
+.card {
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.0);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cardTitle{
+  color: var(--dark-blue);
+  /* font-family: "Roboto", sans-serif; */
+}
+
+.link{
+  background-color: var(--pprimary-Color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+}
+.link:hover{
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
+
+}
+
+

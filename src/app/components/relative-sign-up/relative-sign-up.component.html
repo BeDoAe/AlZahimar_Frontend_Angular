@@ -1,0 +1,131 @@
+<section class="signUp">
+    <div class="signUpForm w-75 m-auto my-4  p-5">
+      <h1 class="fw-bolder">Create Your Account</h1>
+      <p class="lead">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mx-4 mt-2">
+        <!-- Relative Registration Fields -->
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="w-50 me-3">
+            <label for="relativeFirstName">First Name</label>
+            <input id="relativeFirstName" formControlName="relativeFirstName" type="text" class="form-control my-3" />
+            <div *ngIf="f['relativeFirstName'].touched && f['relativeFirstName'].invalid" class="text-danger">
+              <p *ngIf="f['relativeFirstName'].errors?.['required']">*Required</p>
+              <p *ngIf="f['relativeFirstName'].errors?.['minlength'] || f['relativeFirstName'].errors?.['maxlength']">Must be between 2 and 25 characters</p>
+            </div>
+          </div>
+          <div class="w-50">
+            <label for="relativeLastName">Last Name</label>
+            <input id="relativeLastName" formControlName="relativeLastName" type="text" class="form-control my-3" />
+            <div *ngIf="f['relativeLastName'].touched && f['relativeLastName'].invalid" class="text-danger">
+              <p *ngIf="f['relativeLastName'].errors?.['required']">*Required</p>
+              <p *ngIf="f['relativeLastName'].errors?.['minlength'] || f['relativeLastName'].errors?.['maxlength']">Must be between 2 and 25 characters</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="relativeUserName">User Name</label>
+          <input id="relativeUserName" formControlName="relativeUserName" type="text" class="form-control my-3" />
+          <div *ngIf="f['relativeUserName'].touched && f['relativeUserName'].invalid" class="text-danger">
+            <p *ngIf="f['relativeUserName'].errors?.['required']">*Required</p>
+            <p *ngIf="f['relativeUserName'].errors?.['minlength'] || f['relativeUserName'].errors?.['maxlength']">Must be between 5 and 50 characters</p>
+            <p *ngIf="f['relativeUserName'].errors?.['notUnique']">Username already taken</p>
+          </div>
+        </div>
+        <div>
+          <label for="relativeEmail">Email Address</label>
+          <input id="relativeEmail" formControlName="relativeEmail" type="email" class="form-control my-3" />
+          <div *ngIf="f['relativeEmail'].touched && f['relativeEmail'].invalid" class="text-danger">
+            <p *ngIf="f['relativeEmail'].errors?.['email']">Invalid email address</p>
+          </div>
+        </div>
+        <div>
+          <label for="relativeAddress">Address</label>
+          <input id="relativeAddress" formControlName="relativeAddress" type="text" class="form-control my-3" />
+        </div>
+        <div>
+          <label for="relativePhoneNumber">Phone</label>
+          <input id="relativePhoneNumber" formControlName="relativePhoneNumber" type="text" class="form-control my-3" />
+          <div *ngIf="f['relativePhoneNumber'].touched && f['relativePhoneNumber'].invalid" class="text-danger">
+            <p *ngIf="f['relativePhoneNumber'].errors?.['pattern']">Invalid phone number</p>
+          </div>
+        </div>
+        <div>
+          <label for="relativeGender">Gender</label>
+          <div>
+            <input type="radio" formControlName="relativeGender" [value]="0" class="me-2" />
+            <label>Male</label><br />
+            <input type="radio" formControlName="relativeGender" [value]="1" class="me-2" />
+            <label>Female</label><br />
+          </div>
+          <div *ngIf="f['relativeGender'].touched && f['relativeGender'].invalid" class="text-danger">
+            <p *ngIf="f['relativeGender'].errors?.['required']">*Required</p>
+          </div>
+        </div>
+        <div>
+          <label for="relativePassword">Password</label>
+          <input id="relativePassword" formControlName="relativePassword" type="password" class="form-control my-3" />
+          <div *ngIf="f['relativePassword'].touched && f['relativePassword'].invalid" class="text-danger">
+            <p *ngIf="f['relativePassword'].errors?.['required']">*Required</p>
+            <p *ngIf="f['relativePassword'].errors?.['minlength']">Must be at least 8 characters</p>
+          </div>
+        </div>
+        <div>
+          <label for="relativeConfirmPassword">Confirm Password</label>
+          <input id="relativeConfirmPassword" formControlName="relativeConfirmPassword" type="password" class="form-control my-3" />
+          <div *ngIf="f['relativeConfirmPassword'].touched && f['relativeConfirmPassword'].invalid" class="text-danger">
+            <p *ngIf="f['relativeConfirmPassword'].errors?.['required']">*Required</p>
+            <p *ngIf="f['relativeConfirmPassword'].errors?.['minlength']">Must be at least 8 characters</p>
+            <p *ngIf="f['relativeConfirmPassword'].errors?.['notMatched']">Passwords do not match</p>
+          </div>
+        </div>
+
+        <!-- Patient Registration Fields -->
+        <div>
+          <label for="patientFirstName">Patient First Name</label>
+          <input id="patientFirstName" formControlName="patientFirstName" type="text" class="form-control my-3" />
+          <div *ngIf="f['patientFirstName'].touched && f['patientFirstName'].invalid" class="text-danger">
+            <p *ngIf="f['patientFirstName'].errors?.['required']">*Required</p>
+            <p *ngIf="f['patientFirstName'].errors?.['minlength'] || f['patientFirstName'].errors?.['maxlength']">Must be between 2 and 25 characters</p>
+          </div>
+        </div>
+        <div>
+          <label for="patientLastName">Patient Last Name</label>
+          <input id="patientLastName" formControlName="patientLastName" type="text" class="form-control my-3" />
+          <div *ngIf="f['patientLastName'].touched && f['patientLastName'].invalid" class="text-danger">
+            <p *ngIf="f['patientLastName'].errors?.['required']">*Required</p>
+            <p *ngIf="f['patientLastName'].errors?.['minlength'] || f['patientLastName'].errors?.['maxlength']">Must be between 2 and 25 characters</p>
+          </div>
+        </div>
+        <div>
+          <label for="patientAge">Patient Age</label>
+          <input id="patientAge" formControlName="patientAge" type="number" class="form-control my-3" />
+          <div *ngIf="f['patientAge'].touched && f['patientAge'].invalid" class="text-danger">
+            <p *ngIf="f['patientAge'].errors?.['required']">*Required</p>
+            <p *ngIf="f['patientAge'].errors?.['min']">Must be a positive number</p>
+          </div>
+        </div>
+        <div>
+          <label for="patientAddress">Patient Address</label>
+          <input id="patientAddress" formControlName="patientAddress" type="text" class="form-control my-3" />
+        </div>
+        <div>
+          <label for="patientGender">Patient Gender</label>
+          <div>
+            <input type="radio" formControlName="patientGender" [value]="0" class="me-2" />
+            <label>Male</label><br />
+            <input type="radio" formControlName="patientGender" [value]="1" class="me-2" />
+            <label>Female</label><br />
+          </div>
+          <div *ngIf="f['patientGender'].touched && f['patientGender'].invalid" class="text-danger">
+            <p *ngIf="f['patientGender'].errors?.['required']">*Required</p>
+          </div>
+        </div>
+        <div>
+          <label for="patientLocation">Patient Location</label>
+          <input id="patientLocation" formControlName="patientLocation" type="text" class="form-control my-3" />
+        </div>
+
+        <button type="submit" class="p-2 rounded-2 bg-purpel  mt-3 main-border text-white"[disabled]="registerForm.invalid">Submit</button>
+      </form>
+    </div>
+  </section>

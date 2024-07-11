@@ -1,0 +1,70 @@
+<!-- <div class="container">
+  <div class="left">
+<app-doctor-card></app-doctor-card>
+  </div>
+  <div class="right">
+    <app-doctor-filter></app-doctor-filter>
+  </div>
+</div> -->
+
+<!-- parent.component.html -->
+<!-- <app-doctor-filter (filteredDoctorsEvent)="updateFilteredDoctors($event)"></app-doctor-filter>
+<app-doctor-card [filteredDoctors]="filteredDoctors"></app-doctor-card> -->
+
+
+<!-- <div class="container">
+  <div class="left">
+    <app-doctor-card [filteredDoctors]="filteredDoctors"></app-doctor-card>
+  </div>
+  <div class="right">
+    <app-doctor-filter [allDoctors]="allDoctors" (filteredDoctorsEvent)="updateFilteredDoctors($event)"></app-doctor-filter>
+  </div>
+</div> -->
+
+<!-- <div class="container row my-4">
+  <div class="col-lg-3 col-md-4 ">
+    <div type="button" class="rounded-2 p-2 bg-purpel  d-none filterRes " data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop">
+      filter
+    </div>
+    <app-doctor-filter (filteredDoctorsEvent)="updateFilteredDoctors($event)" class="filter"></app-doctor-filter>
+
+  </div>
+  <div class="col-lg-8 col-md-7 col-sm-12">
+<app-doctor-card [filteredDoctors]="filteredDoctors" routerLink="/doctorProfile"></app-doctor-card>
+  </div>
+</div>
+ -->
+
+ <div class="container row my-4">
+  <div class="col-lg-8 col-md-7 col-sm-12">
+    <app-doctor-card [filteredDoctors]="filteredDoctors" routerLink="/doctorProfile"></app-doctor-card>
+  </div>
+  <div class="col-lg-4 col-md-5 col-sm-12">
+    <div class="rounded-2 p-2 bg-purple d-none filterRes" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Filter
+    </div>
+    <app-doctor-filter (filteredDoctorsEvent)="updateFilteredDoctors($event)" class="filter"></app-doctor-filter>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-doctor-filter (filteredDoctorsEvent)="updateFilteredDoctors($event)"></app-doctor-filter>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

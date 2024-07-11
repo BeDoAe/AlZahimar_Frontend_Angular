@@ -1,0 +1,62 @@
+<!-- Button to Open the Modal -->
+
+<button type="button" class="row btn btn-primary mt-4 justify-content-center " (click)="openModal()">
+   Delete Specific Appointment
+  </button>
+
+  <div class="">
+    <h4 class="mt-4 mb-5"> Date Booking</h4>
+    <div style="border: 1px solid #B4E0D3; border-radius: 16px; overflow: auto;">
+      <table class="table table-striped table-hover w-100 overflow-x-auto">
+        <thead>
+          <tr class="p-3">
+            <th class="headBg headBorderRaduis1JobTitle ms-3"> patient</th>
+            <th style="width: 20%;" class="headBg text-center"> Date Booking</th>
+            <th class="headBg text-center">Start Time</th>
+            <!-- <th class="headBg">Status</th> -->
+            <th class="headBg headBorderRaduisActions text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let appointment of filterAppointments; let i = index">
+            <tr>
+              <td style="background-color: #FFFFFF;" class="marginRes ">
+                <div class="d-flex align-items-center ">
+                  <div class="patientImge  rounded-circle border border-3 border-white shadow-sm overflow-hidden me-2">
+                    <img *ngIf="appointment.picUrl; else pictureNotFound" width="100%" [src]="environment + '/' + appointment.picUrl" alt="Patient Image">
+                    <ng-template #pictureNotFound>
+                      <img src="../../../assets/doctor2.PNG" width="100%" alt="Patient Image">
+                    </ng-template>
+                    <!-- <img src="../../../assets/doctor2.PNG" alt="" class="" width="100%"> -->
+                  </div>
+                  <p class="m-0 subtext">
+                    <a [routerLink]="['/VisitedPatientprofile', appointment.patientId]">
+                      {{appointment.fullName}}
+                    </a>
+                  </p>
+                </div>
+              </td>
+              <td class="bg-white pt-4 text-center ">{{appointment.date}}</td>
+              <td class="bg-white pt-4 text-center text-success">ِ{{appointment.startTime | timeFormat}}</td>
+              <!-- <td class="bg-white pt-4 text-center">Reserved</td> -->
+              <td class="bg-white pt-4 text-center">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-solid fa-info"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                      <button class="dropdown-item" (click)="DeleteAppointments(appointment.id)">
+                        <i class="fa fa-solid fa-trash-alt me-2"></i> cancel
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

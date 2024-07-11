@@ -1,0 +1,26 @@
+
+<!-- <div class="board">
+  <div *ngFor="let cell of cells; let i = index" class="cell" id="{{i}}" (click)="turnClick(i)">
+    {{cell}}
+  </div>
+</div>
+<div *ngIf="gameOver" class="end-message">
+  {{endMessage}}
+</div>
+<app-endgame *ngIf="gameOver" [message]="endMessage" (replay)="startGame()"></app-endgame> -->
+<div class="back-arrow-container">
+  <button class="btn btn-secondary back-button mt-2" onclick="history.back()">
+    <i class="fas fa-arrow-left"></i>
+</button>
+</div>
+<div class="board">
+  <div *ngFor="let cell of cells; let i = index" class="cell" id="{{i}}" (click)="turnClick(i)">
+    {{cell}}
+  </div>
+</div>
+<div *ngIf="gameOver" class="end-message">
+  {{endMessage}}
+</div>
+
+<!-- <app-endgame *ngIf="gameOver" [message]="endMessage" (replay)="startGame()"></app-endgame> -->
+

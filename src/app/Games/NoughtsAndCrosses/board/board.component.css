@@ -1,0 +1,61 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  font-size: 2rem;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.cell:hover {
+  background-color: #ddd;
+}
+
+.end-message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
+}
+
+.custom-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.custom-btn:hover {
+  background: #0056b3;
+}
+
+.custom-btn:focus {
+  outline: none;
+}
+
+
+/* arrow Left */
+.back-button {
+  top: 20px;
+  left: 20px;
+  background-color: var(--bg-Color);
+  color: rgb(19, 1, 21);
+
+}

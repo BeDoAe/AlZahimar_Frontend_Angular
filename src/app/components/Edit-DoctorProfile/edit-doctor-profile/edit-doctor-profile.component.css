@@ -1,0 +1,58 @@
+.parent {
+  border: 1px solid #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 10px 20px -5px rgba(6, 36, 92, 0.06);
+  padding: 40px;
+}
+
+.mainTitle {
+  color: #262626;
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+label {
+  color: #262626;
+  font-size: medium;
+  font-weight: 500;
+  padding: 10px;
+  background-color: #ffffff;
+  position: relative;
+  top: 20px;
+  left: 26px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  display: block;
+  padding: 16px;
+  border: 1px solid #989da6;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid var(--main-Color) !important;
+}
+
+.addQuestion,
+.postJob {
+  background-color: var(--main-Color);
+  border: 1px solid var(--main-Color) !important;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

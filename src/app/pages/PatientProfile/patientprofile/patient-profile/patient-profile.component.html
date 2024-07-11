@@ -1,0 +1,237 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="col-12 col-lg-8 mt-4 mainContent">
+    <div class="title">
+      <i class="fa-solid fa-arrow-left"></i> {{ profileData.patientAddress }}
+      <h4>Patient's Profile</h4>
+    </div>
+
+    <!-- Patient Profile Section -->
+    <div class="profile patientProfile">
+      <div class="profileHeader">
+        <div>
+          <img [src]="getImageUrl() + profileData.patientPicURL" alt="DoctorImage" class="DocProfilePic">
+          <input *ngIf="editMode" type="file" (change)="onFileSelected($event)" />
+        </div>
+        <div class="btns">
+          <app-whatsapp-chat-with-my-doctor [doctorId]="profileData.doctorId"></app-whatsapp-chat-with-my-doctor>
+          <button *ngIf="!editMode" class="btn d-none d-lg-block" (click)="toggleEditMode()">Edit</button>
+          <button *ngIf="editMode" class="btn d-none d-lg-block" (click)="saveChanges()">Save</button>
+          <button *ngIf="editMode" class="btn d-none d-lg-block" (click)="cancelEdit()">Cancel Edit</button>
+          <button class="btn d-flex text-align-baseline d-lg-none d-block">
+            <i class="fa-regular fa-calendar-check"></i>
+          </button>
+          <button class="d-none d-lg-block btn secBtn ">
+            <btn routerLink="/notes" >
+            <i class="fa-regular fa-note-sticky text-secondary"></i>
+          </btn>
+          </button>
+      </div>
+
+
+
+      <div class="profileDetails">
+        <h3>
+          <span *ngIf="!editMode">{{ profileData.patientName }} {{ profileData.patientLastName }}</span>
+          <span *ngIf="editMode">
+            <input [(ngModel)]="profileData.patientName" />
+            <input [(ngModel)]="profileData.patientLastName" />
+          </span>
+        </h3>
+        <p class="text-muted location">
+          <i class="fa-solid fa-location-dot"></i>
+          <span *ngIf="!editMode">{{ profileData.patientAddress }}</span>
+          <span *ngIf="editMode"><input [(ngModel)]="profileData.patientAddress" /></span>
+        </p>
+        <div class="mobile d-flex flex-wrap flex-lg-row">
+          <span class="thirdBtn">Gender: <span *ngIf="!editMode">{{ profileData.patientGenderString }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.patientGenderString" /></span></span>
+          <span class="thirdBtn">Age: <span *ngIf="!editMode">{{ profileData.patientAge }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.patientAge" /></span></span>
+        </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Relative Profile Section -->
+    <div class="profile relativeProfile mt-4">
+      <div class="profileDetails">
+        <h3>
+          <span *ngIf="!editMode">{{ profileData.relativeFirstName }} {{ profileData.relativeLastName }}</span>
+          <span *ngIf="editMode">
+            <input [(ngModel)]="profileData.relativeFirstName" />
+            <input [(ngModel)]="profileData.relativeLastName" />
+          </span>
+        </h3>
+        <h6 class="text-muted subTitel">
+          <span *ngIf="!editMode">{{ profileData.relativeUserName }}</span>
+          <span *ngIf="editMode"><input [(ngModel)]="profileData.relativeUserName" /></span>
+        </h6>
+        <p class="text-muted location">
+          <i class="fa-solid fa-location-dot"></i>
+          <span *ngIf="!editMode">{{ profileData.relativeAddress }}</span>
+          <span *ngIf="editMode"><input [(ngModel)]="profileData.relativeAddress" /></span>
+        </p>
+        <div class="mobile d-flex flex-wrap flex-lg-row">
+          <span class="thirdBtn">Phone: <span *ngIf="!editMode">{{ profileData.relativePhoneNumber }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.relativePhoneNumber" /></span></span>
+          <span class="thirdBtn">Gender: <span *ngIf="!editMode">{{ profileData.relativeGenderString }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.relativeGenderString" /></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports Section -->
+    <div class="profile reportsSection mt-4">
+      <div class="Reports mt-4">
+        <div>
+          <h5 class="avTitle" id="count">Reports</h5>
+        </div>
+        <div
+          class="doctoravaliablity d-flex justify-content-center flex-nowrap"
+        >
+          <div
+            *ngFor="let report of paginatedReports"
+            class="report-head d-flex justify-content-between align-items-start px-3 m-3 outercon"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+          >
+            <div
+              (click)="viewReport(report.reportID)"
+              style="cursor: pointer"
+              class="DoctorInfo w-75"
+            >
+              <div class="outer me-4">
+                <img src="../../../assets/logo.svg" alt="">
+              </div>
+              <div class="d-flex align-items-center">
+                <div>
+                  <h6 class="fs-4 fw-semibold">{{ report.doctorName }}</h6>
+                  <p class="fs-6 reportName fw-semibold">{{ report.title }}</p>
+                  <p class="text-secondary">
+                    {{ report.dateTime | date : "MMM dd, yyyy" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="reportInfo">
+              <!-- <button (click)="downloadReportAsPDF(report)" class="fs-6 fw-semibold btn bg-purpel Download">
+                <i class="fa-solid fa-download"></i>
+              </button> -->
+            </div>
+          </div>
+          <div
+            *ngIf="profileData?.reports?.length === 0"
+            class="text-center w-100 mt-4"
+          >
+            No reports available.
+          </div>
+        </div>
+      </div>
+      <div class="pagination mt-4 d-flex justify-content-center align-items-center">
+        <!-- <button class="btn btn-primary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button> -->
+        <ng-container class="pagination" *ngFor="let page of paginationPages">
+          <button class="btn btn-primary   ms-2" (click)="goToPage(page)" [disabled]="currentPage === page">{{ page }}</button>
+        </ng-container>
+        <!-- <button class="btn btn-primary ms-2" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button> -->
+      </div>
+
+    </div>
+
+    <ng-template #reportModal let-modal>
+      <div class="modal-content">
+        <div class="">
+          <section class="report rounded-3 bg-white p-3 modal-body">
+            <div class="">
+      <div class="report-head d-flex justify-content-between align-items-start p-3 ">
+      <div class="DoctorInfo w-75">
+        <div class="d-flex align-items-center">
+          <div class="w-25 me-4">
+            <img src="../../../assets/logo.svg" alt="">
+          </div>
+          <div class="">
+            <h4 class="fs-4 fw-semibold">Dr. {{ reportDetails.doctorName }}</h4>
+            <p class="fs-6 fw-semibold text-secondary">{{ reportDetails.title }}</p>
+            <p class="mt-2 fw-bold text-secondary fs-4">{{ reportDetails.dateTime  | date : "MMM dd, yyyy" }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="reportInfo">
+        <button (click)="downloadReportAsPDF(reportDetails)" class="fs-6 fw-semibold btn bg-purpel Download"><i class="fa-solid fa-download"></i></button>
+      </div>
+      </div>
+      <div class="report-body position-relative">
+        <div class="overlay "></div>
+        <h4 class="fs-3 fw-semibold text-center mt-3">{{ reportDetails.patientName }}</h4>
+        <p class="m-3">
+          <span class="m-4 fs-1 fw-bold text-purpel" style="font-family:cursive;">RX/</span>
+          {{ reportDetails.description }}
+        </p>
+      </div>
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">redmindme.com</a>
+      </div>
+      </div>
+          </section>
+        </div>
+      </div>
+
+    </ng-template>
+
+  </div>
+</div>
+
+
+<!-- <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="">
+        <section class="report rounded-3 bg-white p-3 modal-body">
+          <div class="">
+            <div class="report-head d-flex justify-content-between align-items-start p-3 ">
+              <div class="DoctorInfo w-75">
+                <div class="d-flex align-items-center">
+                  <div class="w-25 me-4">
+                    <img src="../../../assets/logo.svg" alt="">
+                  </div>
+                  <div class="">
+                    <h4 class="fs-4 fw-semibold">{{ reportDetails.title }}</h4>
+                    <p class="fs-6 fw-semibold text-secondary">{{ reportDetails.description }}</p>
+                    <p class="mt-2 fw-bold text-secondary fs-4">{{ reportDetails.dateTime }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="reportInfo">
+                <button class="fs-6 fw-semibold btn bg-purpel Download"><i class="fa-solid fa-download"></i></button>
+              </div>
+            </div>
+            <div class="report-body position-relative">
+              <div class="overlay "></div>
+              <h4 class="fs-3 fw-semibold text-center mt-3">{{ reportDetails.patientName }}</h4>
+              <p class="m-3">
+                <span class="m-4 fs-1 fw-bold text-purpel" style="font-family:cursive;">RX/</span>
+              </p>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </div> -->
+
+

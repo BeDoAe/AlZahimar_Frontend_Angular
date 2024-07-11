@@ -1,0 +1,71 @@
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .body {
+    background-color: #94858555;
+    margin: 0 !important;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--main-Color);
+  }
+  
+
+
+.appontRequest {
+    flex-grow: 1;
+    border-radius: 15px;
+    margin-right: 10px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .appontRequest-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .Patient {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .pateintImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .pateintImage img {
+    width: 100%;
+  }
+  
+  .pateintDetails span {
+    color: rgb(137, 134, 134);
+    font-size: 14px;
+  }
+
+  .buttonColor{
+    background-color: var(--pprimary-Color);
+    color: var(--white);
+    /* border-radius: 50%; */
+  }
+
+  .buttonColor:hover
+{
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  color: var(--dark-blue);
+}
+
+  

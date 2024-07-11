@@ -1,0 +1,57 @@
+<!-- <div *ngIf="result">
+    <h2>Test Results</h2>
+    <p>Patient Name: {{ result.patientName }}</p>
+    <p>Test Title: {{ result.testTitle }}</p>
+    <p>Your Score: {{ result.patientScore }}</p>
+    <p>Test Score: {{ result.testScore }}</p>
+    <p>Date Taken: {{ result.dateTaken | date:'medium' }}</p>
+  
+    <div *ngFor="let answer of formattedResults">
+      <div [ngStyle]="{'border': answer.isCorrect ? '2px solid green' : '2px solid red', 'padding': '10px', 'margin-bottom': '10px'}">
+        <p><strong>Question:</strong> {{ answer.question }}</p>
+        <p><strong>Your Answer:</strong> {{ answer.patientAnswer }}</p>
+        <p><strong>Correct Answer:</strong> {{ answer.correctAnswer }}</p>
+      </div>
+    </div>
+  </div>
+   -->
+   <h1>Test Results</h1>
+   <section class="resultsSection" *ngIf="result">
+     <div class="container">
+       <div class="text-center py-5 fw-bolder text-secondary text-uppercase">
+         <h2>Results for {{ result.testTitle }}</h2>
+       </div>
+   
+       <div class="quizBox m-4">
+         <div class="question mb-3" *ngFor="let answer of formattedResults">
+           <div class="questionHead">
+             <h2 class="fw-bolder fs-3 my-2">Question</h2>
+             <p class="lead my-5 fw-semibold bg-purpel p-4 rounded-2 text-white">{{ answer.question }}</p>
+           </div>
+   
+           <div class="row g-2">
+             <div [ngClass]="{'optionBody': true, 'correct': answer.isCorrect, 'incorrect': !answer.isCorrect}"
+                 class="p-3 text-secondary mb-4 rounded-2 d-flex justify-content-between align-items-center col-lg-5 offset-1 m-auto">
+               <label class="text-secondary">Your Answer:</label>
+               <p>{{ answer.patientAnswer }}</p>
+             </div>
+   
+             <div class="optionBody correctAnswer p-3 text-secondary mb-4 rounded-2 d-flex justify-content-between align-items-center col-lg-5 offset-1 m-auto">
+               <label class="text-secondary">Correct Answer:</label>
+               <p>{{ answer.correctAnswer }}</p>
+             </div>
+           </div>
+         </div>
+       </div>
+   
+       <div class="score-section text-center mt-4">
+         <h3>Your Score: {{ result.patientScore }} / {{ result.testScore }}</h3>
+       </div>
+   
+       <div class="text-center mt-4">
+         <button type="button" class="btn btn-primary" (click)="goBack()">Go  to The Second  Test</button>
+       </div>
+     </div>
+   </section>
+   
+

@@ -1,0 +1,84 @@
+.navbar{
+  background-color: var(--dark-blue);
+}
+
+
+.navbar-brand{
+  color: var( --white);
+}
+.navbar  .container .navbar-collapse .navbar-nav .nav-item .nav-link{
+  color:var( --white);
+}
+
+
+
+.navbar .container .navbar-collapse .navbar-nav .nav-item .nav-link.active,
+.navbar .container .navbar-collapse .navbar-nav .nav-item .nav-link:hover,
+.navbar .container .navbar-collapse .navbar-nav .nav-item .nav-link:focus{
+
+color: var(--pprimary-Color);
+}
+
+.search{
+  color: #ffff;
+}
+
+
+.form-control:focus{
+  outline: none;
+}
+
+
+.searchIcon{
+
+  border-right: 2px solid var(--pprimary-Color);
+}
+
+.navbar-toggler
+{
+  color: var(--white);
+  font-size: 25px;
+  border-color: var(--white);
+}
+.logo{
+  width: 60px;
+  height:60px;
+
+}
+
+.navbar-toggler:focus{
+  box-shadow: none;
+}
+.navbar-toggler[aria-expanded="true"]{
+  color: var(--pprimary-Color);
+}
+
+.main-btn{
+  background-color: var(--pprimary-Color);
+  color: var(--white);
+  /* border-radius: 50%; */
+}
+
+.main-btn:hover
+{
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  color: var(--dark-blue);
+}
+
+.navbar-collapse.collapse {
+  display: none;
+}
+
+.navbar-collapse.collapse.show {
+  display: block;
+}
+
+.custom-active-link {
+
+  background-color:var(--pprimary-Color); /* Example background color: AliceBlue */
+  /* Add other styles as needed */
+}
+.clicable{
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<div class="container pt-0">
+  <div class="row py-3 z-3">
+    <div class="col d-flex flex-row justify-content-around align-items-center">
+      <h1><i class="fas fa-sticky-note"></i> Sticky Notes</h1>
+      <button class="add" (click)="addNote()">Add Note</button>
+    </div>
+  </div>
+</div>
+<div class="container pt-2 mt-1">
+  <div class="row">
+    <div class="col">
+      <ul id="ulId" class="justify-content-between">
+        <li *ngFor="let note of notes; let i = index">
+          <div class="note position-relative">
+            <button class="delete-note" (click)="deleteNote(i)">
+              <i class="fas fa-times"></i>
+            </button>
+            <button class="download-note" (click)="downloadNoteAsPDF(note)">
+              <i class="fas fa-download"></i>
+            </button>
+            <a href="#" contenteditable="true" (keyup)="updateNote(i, $event)">
+              <h2>{{ note.name }}</h2>
+              <p>{{ note.description }}</p>
+            </a>
+            <button class="status-indicator" (click)="markAsDone(note)">
+              <div class="circle" [ngStyle]="{'background-color': note.statusName === 'Done' ? 'green' : 'white'}">
+                <i class="fas fa-check" [style.color]="note.statusName === 'Done' ? 'white' : 'black'"></i>
+              </div>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

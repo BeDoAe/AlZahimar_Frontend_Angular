@@ -1,0 +1,16 @@
+/*
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  font-size: 2rem;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.cell:hover {
+  background-color: #ddd;
+} */

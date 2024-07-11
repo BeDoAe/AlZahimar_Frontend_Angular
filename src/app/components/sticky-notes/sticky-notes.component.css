@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+
+
+div {
+  font-family: 'Lato';
+  background: --bg-Color;
+  color: #fff;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+h2 {
+  padding: 10px 10px;
+  border: 1px solid rgb(74, 71, 69);
+}
+p {
+  font-family: 'Reenie Beanie';
+  font-size: 2rem;
+  padding: 15px 10px;
+  border: 1px dotted rgb(107, 106, 106);
+  margin-top: 1rem !important;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  height: 20em;
+  width: 20em;
+  padding: 1em;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+  transition: transform .15s linear;
+  overflow: hidden;
+}
+
+ul li {
+  margin: 1em;
+}
+
+ul li:nth-child(odd) a {
+  transform: rotate(-4deg);
+  position: relative;
+  top: 5px;
+}
+
+ul li:nth-child(even) a {
+  transform: rotate(4deg);
+  position: relative;
+  top: 5px;
+}
+
+ul li:nth-child(3n) a {
+  transform: rotate(-3deg);
+  position: relative;
+  top: -5px;
+}
+
+ul li:nth-child(5n) a {
+  transform: rotate(5deg);
+  position: relative;
+  top: -10px;
+}
+
+ul li a:hover,
+ul li a:focus {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+  transform: scale(1.25);
+  position: relative;
+  z-index: 3;
+}
+
+ul li:nth-child(even) a {
+  position: relative;
+  top: 5px;
+  background: #cfc;
+}
+
+ul li:nth-child(3n) a {
+  position: relative;
+  top: -5px;
+  background: #ccf;
+}
+
+.note {
+  position: relative;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.delete-note,
+.download-note {
+  position: absolute;
+  top: -10px; /* Adjusted to position the buttons slightly outside the note */
+  width: 25px; /* Width of the circle */
+  height: 25px; /* Height of the circle */
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  font-weight: bold; /* Make the icon bold */
+  line-height: 25px; /* Center the icon vertically */
+  text-align: center; /* Center the icon horizontally */
+  cursor: pointer;
+}
+
+.delete-note {
+  left: -10px; /* Adjusted to position the delete button on the top left */
+  background-color: rgb(240, 87, 87);
+}
+
+.delete-note:hover {
+  background-color: darkred;
+}
+
+.download-note {
+  /* right: -10px; */
+  background-color: rgb(87, 87, 240);
+  left: 15px;
+  top: -20px;
+}
+
+.download-note:hover {
+  background-color: darkblue;
+}
+
+.delete-note i,
+.download-note i {
+  /* Styling for FontAwesome icons */
+  color: white;
+}
+
+.status-indicator {
+  position: absolute;
+  top: -10px;
+  right: 40px; /* Adjust this value as needed */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.status-indicator i {
+  font-size: 20px;
+}
+
+.circle {
+  width: 25px; /* Adjusted size to match delete and download icons */
+  height: 25px; /* Adjusted size to match delete and download icons */
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.circle i {
+  font-size: 14px; /* Adjusted font size for the check mark icon */
+  color: black;
+}
+

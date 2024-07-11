@@ -1,0 +1,48 @@
+<div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel" #carousel>
+  <div class="carousel-inner">
+    <div *ngFor="let chunk of chunkedDoctors; let i = index" class="carousel-item" [class.active]="i === 0">
+      <div class="row justify-content-center">
+        <div *ngFor="let doctor of chunk" class="col-lg-3 col-sm-6 main-border p-0 rounded-3 overflow-hidden mx-3">
+          <div class="doctor-card">
+            <ng-container *ngIf="isLoggedIn && userRole !== 'Doctor'; else notLoggedIn">
+              <a [routerLink]="['/VisitedDoctorprofile', doctor.id]" class="d-block">
+                <img [src]="getImageUrl() + doctor.picURL" alt="DoctorImage" class="card-img-top docImg">
+              </a>
+              <div class="doctor-content p-1">
+                <h3>
+                  <a [routerLink]="['/VisitedDoctorprofile', doctor.id]">{{ doctor.firstName }} {{ doctor.lastName }}</a>
+                </h3>
+                <span>{{ doctor.worksIn }}</span>
+                <ul class="share-link d-flex justify-content-center align-items-center">
+                  <app-star-rating [averageRating]="doctor.averageRating"></app-star-rating>
+                </ul>
+              </div>
+            </ng-container>
+            <ng-template #notLoggedIn>
+              <div class="doctor-card-placeholder">
+                <img [src]="getImageUrl() + doctor.picURL" alt="DoctorImage" class="card-img-top docImg">
+                <div class="doctor-content p-1">
+                  <h3>{{ doctor.firstName }} {{ doctor.lastName }}</h3>
+                  <span>{{ doctor.worksIn }}</span>
+                  <ul class="share-link d-flex justify-content-center align-items-center">
+                    <app-star-rating [averageRating]="doctor.averageRating"></app-star-rating>
+                  </ul>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev text-purpel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-purpel rounded-2" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next text-purpel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-purpel rounded-2" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

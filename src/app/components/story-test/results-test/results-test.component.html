@@ -1,0 +1,91 @@
+<!-- <section class="results">
+    <div class="container">
+        <div *ngIf="score >= 50; else lowScoreTemplate">
+            <div class="img m-auto p-2">
+                <img src="../../../../assets/jpeg/bubble-gum-man-successfully-crossing-finish-line.gif" alt=""
+                    class=" m-auto" width="100%">
+            </div>
+            <div class="scoreBody text-center">
+                <h4 class="score text-purpel fs-4">
+                    Your Score {{score}}
+                </h4>
+                <p class="my-4 lead fw-bold text-secondary">
+                    Congratulations on completing your test! Your strength and courage are truly inspiring. Keep up the
+                    great work and remember that each step forward is a victory. We are all proud of you!
+                </p>
+            </div>
+        </div>
+
+         <ng-template #lowScoreTemplate>
+        <div>
+            <div class="img m-auto p-2">
+                <img src="../../../../assets/Svgs/2iEDlZ8hpUBpOW3fMGXbEJNjhmU.svg" alt="" class=" m-auto" width="100%">
+            </div>
+
+            <div class="scoreBody text-center">
+                <p class="score text-purpel ">
+                    Your Score <span class="fs-1 fw-bold">{{score}}</span>
+                </p>
+                <p class="my-4 lead fw-bold text-secondary">
+                    Don't be discouraged by your test result. Remember, the journey is just as important as the
+                    destination.
+                    Every
+                    step you take is a step forward, and we're here to support you every step of the way. Keep going,
+                    and
+                    never give
+                    up!
+                </p>
+            </div>
+        </div>
+        </ng-template>
+
+        <p class="backToHome text-center pointer-event" navLink="home"> Back to Home <i class="fa-solid fa-arrow-right ms-3"></i></p>
+    </div>
+
+</section> -->
+
+
+
+
+<!-- <-------------stop ---------------------------->
+
+<section class="results">
+  <div class="container">
+    <div *ngIf="score >= 5; else lowScoreTemplate">
+      <div class="img m-auto p-2">
+        <img src="../../../../assets/jpeg/bubble-gum-man-successfully-crossing-finish-line.gif" alt="" class=" m-auto" width="100%">
+      </div>
+      <div class="scoreBody text-center">
+        <h4 class="score text-purpel fs-4">
+          Your Score {{ score }}
+        </h4>
+        <p class="my-4 lead fw-bold text-secondary">
+          Congratulations on completing your test! Your strength and courage are truly inspiring. Keep up the great work and remember that each step forward is a victory. We are all proud of you!
+        </p>
+      </div>
+    </div>
+
+    <ng-template #lowScoreTemplate>
+      <div>
+        <div class="img m-auto p-2">
+          <img src="../../../../assets/Svgs/2iEDlZ8hpUBpOW3fMGXbEJNjhmU.svg" alt="" class=" m-auto" width="100%">
+        </div>
+        <div class="scoreBody text-center">
+          <p class="score text-purpel">
+            Your Score <span class="fs-1 fw-bold">{{ score }}</span>
+          </p>
+          <p class="my-4 lead fw-bold text-secondary">
+            Don't be discouraged by your test result. Remember, the journey is just as important as the destination. Every step you take is a step forward, and we're here to support you every step of the way. Keep going, and never give up!
+          </p>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- <p class="backToHome text-center pointer-event" routerLink="/home"> Back to Home <i class="fa-solid fa-arrow-right ms-3"></i></p> -->
+    <div class="text-center mt-4">
+      <button type="button" class="btn clr clrr my-5" (click)="goBack()">Go Back to Tests</button>
+    </div>
+  </div>
+</section>
+
+

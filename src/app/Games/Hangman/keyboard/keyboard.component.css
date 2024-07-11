@@ -1,0 +1,25 @@
+.keyboard {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.keyboard button {
+  background-color: #88AB8E;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  text-transform: uppercase;
+  width: calc(100% / 9 - 5px);
+}
+.keyboard button:hover {
+  background-color: rgba(136, 171, 142, 0.8);
+}
+.keyboard button[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}

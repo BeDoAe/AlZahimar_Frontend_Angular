@@ -1,0 +1,76 @@
+<!-- NEW Side-Bar -->
+<div class="">
+    <div class=" d-flex body">
+      <div class="col-sm-2 col-md-2  col-lg-2 sidebar">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class=" col-sm-10 col-md-10 rightContent mt-5">
+        <div class="title">
+          <p>Dashboard</p>
+        </div>
+        <div class="  flex-wrap w-100   data-info">
+          <div class="col-2 col-md-2 col-lg-3 box">
+            <i class="fa-regular fa-calendar icon"></i>
+            <div class="text">
+              <span>24.4K</span>
+              <p>Appointments</p>
+            </div>
+          </div>
+          <div class="col-2 col-md-2 col-lg-3 box">
+            <i class="fa-regular fa-user icon"></i>
+            <div class="text flex-wrap">
+              <span>{{patientsCount}}</span>
+              <p>Total Patient</p>
+            </div>
+          </div>
+          <div class="col-2 col-md-2 col-lg-3 box">
+            <i class="fa-solid fa-user-nurse"></i>
+            <div class="text">
+              <span>{{doctorsCount}}</span>
+              <p>Total Doctor</p>
+            </div>
+          </div>
+        </div>
+        <div class="row restContet mt-4">
+          
+          <div class="col-12 col-md-4 col-lg-4 appontRequest">
+            <!-- <router-outlet></router-outlet> -->
+            <!-- // loop on the doctors requests   -->
+             <ng-container *ngFor="let doctor of filterDoctors; let i = index;" >
+            <div class="d-flex my-3 justify-content-between">
+                <div class="Patient gap-3">
+                  <div class="pateintImage">
+                    <img *ngIf="doctor.picUrl; else pictureNotFound" [src]="environment + '/' + doctor.picUrl" alt="Patient Image">
+                    <ng-template #pictureNotFound>
+                      <img  src="../../../../assets/doctor2.PNG" *ngIf="doctor.gender == 'Male' " alt="Patient Image">
+                      <img  src="../../../../assets/doctor3.PNG" *ngIf="doctor.gender == 'Female' " alt="Patient Image">
+                    </ng-template>
+                    
+                  </div>
+                  <div class="pateintDetails">
+                    <p>{{ doctor.name }}</p>
+                     <span> {{doctor.age}} {{ doctor.gender }} {{ doctor.date | date:'MMM d, h:mm a' }}</span>
+                  </div>
+                </div>
+                <div class="my-3">
+                  <a type="button" class="btn btn-primary p-2 mx-3" (click)="doctorDetails(doctor.id)">Details</a>
+                  <a type="button" class="btn btn-success p-2 mx-3" (click)="confirmRequest(doctor.id)">Confirm</a>
+                  <a type="button" class="btn btn-danger p-2 mx-1" (click)="rejectRequest(doctor.id)">Reject</a>
+              </div>
+              </div>
+
+
+            </ng-container>
+          </div> 
+          <div class="col-12 col-md-4 col-lg-4 donughtChart">
+            <div class="title d-flex justify-content-between">
+              <p>Patient Tracking</p>
+              
+            </div>
+            <app-donight-chart></app-donight-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

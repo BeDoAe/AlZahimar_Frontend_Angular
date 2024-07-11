@@ -1,0 +1,114 @@
+
+
+<div class="d-flex">
+
+  <div class="col-12  mt-4 mainContent justify-content-center mx-auto">
+    <div class="title">
+      <i class="fa-solid fa-arrow-left"></i> {{ profileData.address }}
+      <h4>Doctor's Profile</h4>
+    </div>
+    <div class="profile">
+      <div class="DocProfileDetals">
+        <div><img [src]="getImageUrl()+profileData.picURL" alt="DoctorImage" class="DocProfilePic"></div>
+        <div class="btns">
+          <!-- <button class="btn d-flex text-align-baseline">
+            <i class="fa-regular fa-comment"></i>
+            <span class="d-none d-lg-block d-md-block"> Send message</span>
+          </button> -->
+
+          <app-whatsapp-chat-with-doctor [doctorId]="doctorId"></app-whatsapp-chat-with-doctor>
+
+          <button class="btn d-flex text-align-baseline d-lg-none d-block">
+            <i class="fa-regular fa-calendar-check"></i>
+          </button>
+          <button (click)="checkPaymentAndAssignDoctor()" class="d-none d-lg-block btn secBtn" [disabled]="isAssigned">
+            Assign
+          </button>
+          <button *ngIf="isAuthorizedToAssign"  routerLink="/appointmentTimes"  class="d-none d-lg-block btn secBtn">
+            Reserve
+          </button>
+
+
+
+        </div>
+      </div>
+      <div class="doctorTitel">
+        <h3>
+          <span >Dr. {{ profileData.firstName }} {{ profileData.lastName }}</span>
+        </h3>
+        <h6 class="text-muted subTitel">
+          <span >{{ profileData.userName }}</span>
+
+        </h6>
+        <p class="text-muted location">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>{{ profileData.address }}</span>
+
+        </p>
+        <div class="rating d-flex">
+          <app-star-rating [averageRating]="profileData.averageRating ?? 0"></app-star-rating>
+          <!-- <strong><h3>{{ profileData.averageRating }}</h3></strong> -->
+        </div>
+        <div class="mobile d-flex flex-wrap flex-lg-row">
+          <span class="thirdBtn">
+            Phone: <span>{{ profileData.phone }}</span>
+          </span>
+          <span class="thirdBtn">
+            Gender: <span >{{ profileData.genderString }}</span>
+
+          </span>
+          <span class="thirdBtn">
+            Age: <span >{{ profileData.age }}</span>
+
+          </span>
+        </div>
+      </div>
+<hr>
+      <div class="work-appointment" *ngIf="workAppointment">
+        <h5>Work Appointment Details</h5>
+        <p>{{ workAppointment.durationByMinutes }} Minutes</p>
+        <p>{{ workAppointment.startOfDay }}</p>
+        <p>{{ workAppointment.endOfDay }}</p>
+      </div>
+
+    </div>
+    <div class="description">
+      <div class="doctorDesc mt-5">
+        <h5>About</h5>
+        <div >{{ profileData.worksIn }}</div>
+
+      </div>
+      <div class="doctorDesc">
+        <h5>Experience</h5>
+        <div>{{ profileData.history }}</div>
+
+      </div>
+    </div>
+
+    <div class="avaliablity mt-4">
+      <h5 class="avTitle">Rating</h5>
+      <button class="btn btn-primary btn-md button2 margin thirdBtn left" [disabled]="!canAddRating" (click)="openRatingPopup()">
+        Add Rating
+      </button>
+      <div class="doctoravaliablity d-flex justify-content-center flex-wrap">
+        <!-- <div> <img [src]="getImageUrl()+PatientImage" alt="DoctorImage" class="DocProfilePic">Patient</div> -->
+        <div *ngFor="let rating of paginatedRatings" class="rating-item col-12 col-sm-6 col-md-3 col-lg-2 mb-2">
+          <div> <img [src]="getImageUrl() + PatientImage" alt="DoctorImage" class="DocProfilePicRate">Patient</div>
+          <app-star-rating [averageRating]="rating.ratingValue"></app-star-rating>
+          <p>{{ rating.comment }}</p>
+          <p>{{rating.date | date: 'MMM dd, hh:mm a'}}</p>
+
+        </div>
+      </div>
+
+      <div class="pagination-controls">
+        <button *ngFor="let page of totalPages()" (click)="changePage(page)" [class.active]="page === currentPage">
+          {{ page }}
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

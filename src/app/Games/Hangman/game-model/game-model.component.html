@@ -1,0 +1,8 @@
+<div class="game-model" [ngClass]="{'show': gameOver}">
+  <div class="content">
+    <img [src]="isVictory ? '/assets/images/victory.gif' : '/assets/images/lost.gif'" alt="Result" />
+    <h4>{{ isVictory ? 'Congratulations!' : 'Game Over!' }}</h4>
+    <p>{{ isVictory ? 'You found the word:' : 'The correct word was:' }} <b>{{ correctWord }}</b></p>
+    <button class="play-again" (click)="playAgain.emit()">Play Again</button>
+  </div>
+</div>

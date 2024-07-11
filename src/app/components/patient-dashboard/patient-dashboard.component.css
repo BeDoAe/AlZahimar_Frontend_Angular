@@ -1,0 +1,221 @@
+/* Global Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  justify-content: space-between;
+  justify-content: space-around;
+}
+
+
+.body {
+  background-color: #94858555;
+  margin: 0 !important;
+  width: 100%;
+  overflow: auto;
+
+
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-Color);
+}
+
+.sidebar {
+  position: relative;
+  z-index: 1;
+}
+
+/* Right Content Styles */
+.rightContent {
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin: auto;
+}
+
+/* .rightContent .text {
+  font-size: 1.5rem;
+  font-weight: 500;
+} */
+
+.restContent {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Data Info Styles */
+.data-info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.data-info .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: var(--dark-blue);
+  padding: 10px;
+  border-radius: 15px;
+  flex-grow: 1;
+  transition: 0.3s;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-info .box:hover {
+  background: var(--bgg-Color);
+}
+
+.box i {
+  font-size: 3rem;
+  background-color: #ffffff55;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.btn {
+  border: none;
+  outline: none;
+}
+
+.box span {
+  font-size: 1.2 rem;
+}
+
+.box .text {
+  font-size: 1rem;
+}
+
+.title p {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Appointment Request Styles */
+.appontRequest {
+  flex-grow: 1;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #fff;
+  min-height: 300px; /* Adjust this value as needed */
+  flex: 1;
+}
+
+.appontRequest-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Doughnut Chart Styles */
+.donughtChart {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  min-height: 400px; /* Adjust this value as needed */
+  flex: 1;
+}
+
+/* Patient Styles */
+.Patient {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.pateintImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pateintImage img {
+  width: 100%;
+}
+.count{
+  font-size: 2rem;
+}
+
+.pateintDetails span {
+  color: rgb(137, 134, 134);
+  font-size: 14px;
+}
+
+.dateTime{
+  font-size: 16px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 991px) {
+  .box .text span,
+  .box .text p {
+    font-size: 0.8rem;
+  }
+
+  .box i {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  .rightContent .text {
+    font-size: 1rem;
+  }
+
+  .data-info .box {
+    padding: 5px;
+    width: 100%;
+  }
+
+  .restContent {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1012px) and (max-width: 1020px) {
+  .rightContent {
+    width: calc(100% - 40px);
+    flex-grow: 1;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+  }
+}
+
+.list-unstyled {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0; /* Removes default padding */
+}
+
+.docname{
+  font-size: 1.2rem;
+}
+
+.unfollow-icon {
+  color: red;
+  cursor: pointer;
+  right: 10px;
+  top: 10px;
+}
+
+.unfollow-icon:hover {
+  color: darkred;
+}
+.pagination{
+  text-align: center;
+}

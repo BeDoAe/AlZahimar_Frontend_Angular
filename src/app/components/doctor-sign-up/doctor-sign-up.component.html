@@ -1,0 +1,165 @@
+<section class="signUp">
+  <div class="signUpForm w-75 m-auto bg-white p-5">
+    <h1 class="fw-bolder">Create Your Account</h1>
+    <p class="lead">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+    <form class="mx-4 mt-2" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="w-50 me-3">
+          <label for="fName">First Name</label>
+          <input id="fName" type="text" class="form-control my-3" formControlName="firstName" name="firstname">
+          <p *ngIf="f['firstName'].errors?.['required'] && (f['firstName'].dirty || f['firstName'].touched)" class="text-danger">
+            First name is required.
+          </p>
+          <p *ngIf="f['firstName'].errors?.['minlength'] && (f['firstName'].dirty || f['firstName'].touched)" class="text-danger">
+            First name must be at least 2 characters.
+          </p>
+          <p *ngIf="f['firstName'].errors?.['maxlength'] && (f['firstName'].dirty || f['firstName'].touched)" class="text-danger">
+            First name must be at most 25 characters.
+          </p>
+        </div>
+        <div class="w-50">
+          <label for="lName">Last Name</label>
+          <input id="lName" type="text" class="form-control my-3" formControlName="lastName" name="lastname">
+          <p *ngIf="f['lastName'].errors?.['required'] && (f['lastName'].dirty || f['lastName'].touched)" class="text-danger">
+            Last name is required.
+          </p>
+          <p *ngIf="f['lastName'].errors?.['minlength'] && (f['lastName'].dirty || f['lastName'].touched)" class="text-danger">
+            Last name must be at least 2 characters.
+          </p>
+          <p *ngIf="f['lastName'].errors?.['maxlength'] && (f['lastName'].dirty || f['lastName'].touched)" class="text-danger">
+            Last name must be at most 25 characters.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <label for="userName">User Name</label>
+        <input id="userName" type="text" class="form-control my-3" formControlName="userName" name="username">
+        <p *ngIf="f['userName'].errors?.['required'] && (f['userName'].dirty || f['userName'].touched)" class="text-danger">
+          User name is required.
+        </p>
+        <p *ngIf="f['userName'].errors?.['minlength'] && (f['userName'].dirty || f['userName'].touched)" class="text-danger">
+          User name must be at least 5 characters.
+        </p>
+        <p *ngIf="f['userName'].errors?.['maxlength'] && (f['userName'].dirty || f['userName'].touched)" class="text-danger">
+          User name must be at most 50 characters.
+        </p>
+        <p *ngIf="f['userName'].errors?.['notUnique']" class="text-danger">
+          User name is already taken.
+        </p>
+      </div>
+
+      <div>
+        <label for="email">Email Address</label>
+        <input id="email" type="email" class="form-control my-3" formControlName="email" name="email">
+        <p *ngIf="f['email'].errors?.['required'] && (f['email'].dirty || f['email'].touched)" class="text-danger">
+          Email is required.
+        </p>
+        <p *ngIf="f['email'].errors?.['email'] && (f['email'].dirty || f['email'].touched)" class="text-danger">
+          Enter a valid email address.
+        </p>
+      </div>
+
+      <div>
+        <label for="address">Address</label>
+        <input id="address" type="text" class="form-control my-3" formControlName="address" name="address">
+        <p *ngIf="f['address'].errors?.['required'] && (f['address'].dirty || f['address'].touched)" class="text-danger">
+          Address is required.
+        </p>
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" class="form-control my-3" formControlName="phone" name="phone">
+        <p *ngIf="f['phone'].errors?.['required'] && (f['phone'].dirty || f['phone'].touched)" class="text-danger">
+          Phone is required.
+        </p>
+        <p *ngIf="f['phone'].errors?.['pattern'] && (f['phone'].dirty || f['phone'].touched)" class="text-danger">
+          Enter a valid phone number.
+        </p>
+      </div>
+
+      <!-- <div>
+        <label for="docId">Card Number</label>
+        <input id="docId" type="text" class="form-control my-3" formControlName="cardNumber" name="cardnumber">
+        <p *ngIf="f['cardNumber'].errors?.['required'] && (f['cardNumber'].dirty || f['cardNumber'].touched)" class="text-danger">
+          Card number is required.
+        </p>
+      </div> -->
+
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="w-50 me-3">
+          <label for="docId">Card Number</label>
+          <input id="docId" type="text" class="form-control my-3" formControlName="cardNumber" name="cardnumber">
+          <p *ngIf="f['cardNumber'].errors?.['required'] && (f['cardNumber'].dirty || f['cardNumber'].touched)" class="text-danger">
+            Card Number is required.
+          </p>
+        </div>
+        <div class="w-50">
+          <label for="price">Price</label>
+          <input id="price" type="number" class="form-control my-3" formControlName="price" name="price">
+          <p *ngIf="f['price'].errors?.['price'] && (f['price'].dirty || f['price'].touched)" class="text-danger">
+            Price is required.
+          </p>
+          <p *ngIf="f['price'].errors?.['min'] && (f['price'].dirty || f['price'].touched)" class="text-danger">
+            Price must be at least 100.
+          </p>
+          <p *ngIf="f['price'].errors?.['max'] && (f['price'].dirty || f['price'].touched)" class="text-danger">
+            Price must be at most 500.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <label for="age">Age</label>
+        <input id="age" type="text" class="form-control my-3" formControlName="age" name="age">
+        <p *ngIf="f['age'].errors?.['required'] && (f['age'].dirty || f['age'].touched)" class="text-danger">
+          Age is required.
+        </p>
+        <p *ngIf="f['age'].errors?.['min'] && (f['age'].dirty || f['age'].touched)" class="text-danger">
+          Age must be at least 25.
+        </p>
+        <p *ngIf="f['age'].errors?.['max'] && (f['age'].dirty || f['age'].touched)" class="text-danger">
+          Age must be at most 90.
+        </p>
+        <p *ngIf="f['age'].errors?.['notText']" class="text-danger">
+          Age must be number Only.
+        </p>
+      </div>
+
+      <div class="mb-2">
+        <p>Gender</p>
+        <input type="radio" id="male" class="me-2" name="gender" formControlName="gender" [value]="0" (change)="onGenderChanged('male')">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" class="me-2" name="gender" formControlName="gender" [value]="1" (change)="onGenderChanged('female')">
+        <label for="female">Female</label><br>
+        <p *ngIf="f['gender'].errors?.['required'] && (f['gender'].dirty || f['gender'].touched)" class="text-danger">
+          Gender is required.
+        </p>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control my-3" formControlName="password" name="password">
+        <p *ngIf="f['password'].errors?.['required'] && (f['password'].dirty || f['password'].touched)" class="text-danger">
+          Password is required.
+        </p>
+      </div>
+
+      <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" class="form-control my-3" formControlName="confirmPassword" name="confirmPassword">
+        <p *ngIf="f['confirmPassword'].errors?.['required'] && (f['confirmPassword'].dirty || f['confirmPassword'].touched)" class="text-danger">
+          Confirm Password is required.
+        </p>
+        <p *ngIf="f['confirmPassword'].errors?.['notMatched']" class="text-danger">
+          The password and confirmation password do not match.
+        </p>
+      </div>
+
+      <p>Already have an account? <span class="signIn">Sign in</span></p>
+      <button class="btn btnSignUp" type="submit" [disabled]="registerForm.invalid">Create Account</button>
+    </form>
+  </div>
+</section>

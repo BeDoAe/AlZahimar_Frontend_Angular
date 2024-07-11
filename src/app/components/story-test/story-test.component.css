@@ -1,0 +1,48 @@
+.storyContainer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  background: no-repeat center url('../../../assets/jpeg/bg.jpg');
+  background-size: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imgTest {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imgTest .inner-image {
+  width: 50%; /* Adjust as needed */
+  height: 50%; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white; /* Optional: add a border to the inner image */
+}
+
+.QuestionsBtn {
+  background-color: var(--main-Color);
+}
+.clr{
+  color: #150332;
+ 
+
+}
+.clr:hover{
+  color: #150332;
+  background-color: #c8b2e9;
+  font-weight: bold;
+  font-size: 1rem; 
+
+}
+.clrr{
+  background-color: #f8f7fb;
+}

@@ -1,0 +1,62 @@
+<br>
+<div class="mx-5">
+<form [formGroup]="searchForm">
+  <input type="text" formControlName="searchText" placeholder="Search..." class="form-control mb-3">
+</form>
+</div>
+<div class="container mt-4">
+  <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3"> -->
+    <div class="row row-cols-1 row-cols-sm-2">
+    <ng-container *ngIf="filteredDoctors.length > 0; else noDoctors">
+      <div class="col mb-4 d-flex justify-content-center" *ngFor="let doctor of filteredDoctors">
+        <div class="card" style="width: 35rem;">
+          <div class="docHead m-2 d-flex align-items-start flex-wrap">
+          <!-- <img [src]="doctor.picURL" class="card-img-top docImg" alt="doctor"/> -->
+          <img [src]="getImageUrl() + doctor.picURL" class="docImg" alt="DoctorImage" class="card-img-top docImg">
+          <div class="card-body ">
+            <div class="docInfo text-left">
+              <a [routerLink]="['/VisitedDoctorprofile', doctor.id]" class="text-decoration-none">
+                <h5 class=" text-left docName fw-bold cardTitle">
+                <i class="fa-solid jobTitle text-secondary " [ngClass]="{'fa-user-doctor': doctor.genderString === 'Male', 'fa-user-nurse': doctor.genderString === 'Female'}"></i>
+                  Dr. {{doctor.firstName}} {{doctor.lastName}}
+                </h5>
+              </a>
+              <!-- <p class="text-secondary">{{doctor.userName}}</p> -->
+              <!-- <p class=""><app-star-rating [averageRating]="doctor.averageRating"></app-star-rating></p> -->
+              <app-star-rating [averageRating]="doctor.averageRating ?? 0"></app-star-rating>
+            </div>
+          </div>
+          </div>
+            <div class="docMoreInfo d-flex text-secondary m-2 justify-content-start flex-wrap">
+              <p class="price bg-secondary-subtle p-2 rounded-2">{{doctor.age}} years old</p>
+              <p class="price bg-secondary-subtle p-2 rounded-2 mx-3"><i class="fa-solid fa-hand-holding-dollar"></i> {{doctor.price}} EGP</p>
+              <p class="price bg-secondary-subtle p-2 rounded-2 me-3"><i class="fa-solid fa-location-dot"></i> {{doctor.address}}</p>
+              <p class="price bg-secondary-subtle p-2 rounded-2"><i class="fa-solid fa-clock"></i> 10AM - 2PM</p>
+              <div class="discrptionDoc d ">
+                <p class="text-secondary fw-semibold" *ngIf="doctor.worksIn">Works In: {{doctor.worksIn}}</p>
+              </div>
+            </div>
+          <div class="links d-flex justify-content-center mb-3">
+            <!-- <a href="#" class="mx-2 text-reset link">
+              <i class="fab fa-facebook-f"></i>
+            </a> -->
+            <a href="#" (click)="openEmailClient($event, doctor.id)" class="mx-2 text-reset link">
+              <i class="fab fa-google"></i>
+            </a>
+
+            <!-- <a href="#" class="mx-2 text-reset link">
+              <i class="fab fa-twitter"></i>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noDoctors>
+      <div class="col text-center">
+        <p>No doctors available.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+

@@ -1,0 +1,56 @@
+.doctorFilter {
+  background-color:#fbf9fe;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid var(--main-Color);
+}
+.fillSvg{
+  fill:#909090;
+}
+.fillSvg:hover{
+  fill:var(--main-Color);
+  transition: .4s;
+}
+
+.headFilter {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.clearFilter {
+  color: #007bff;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.form-range {
+  width: 100%;
+}
+
+.mb-3 div {
+  font-size: 14px;
+  color: #555;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.star {
+  font-size: 25px;
+  color: #ccc; /* Default color */
+  transition: color 0.2s;
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star.selected {
+  color: #ffcc00; /* Highlight color */
+}
+

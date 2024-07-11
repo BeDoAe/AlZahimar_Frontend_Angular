@@ -1,0 +1,31 @@
+.doctor-card{
+  margin-bottom: 25px;
+  text-align: center;
+}
+a {
+  transition: var(--transition);
+  color: var(--black-color);
+  text-decoration: none;
+  outline: 0 !important;
+}
+.doctor-card .doctor-content h3 {
+  margin-bottom: 7px;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: var(--font-family2);
+}
+.doctor-card .doctor-content .share-link {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+.fa-star {
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: orange;
+}
+
+.docImg{
+  height: 15rem;
+}

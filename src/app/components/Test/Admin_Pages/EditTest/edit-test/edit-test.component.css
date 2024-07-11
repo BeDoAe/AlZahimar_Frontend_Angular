@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Off-white background color */
+  }
+  
+  .form {
+    width: 90%; /* Adjust the width as needed */
+    max-width: 800px; /* Limit the maximum width for better readability */
+    background-color: #ffffff; /* White background color */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form .flex {
+    display: flex;
+    gap: 20px; /* Increased gap between inputs */
+  }
+  
+  .form label {
+    position: relative;
+    margin-bottom: 20px; /* Increased margin between labels */
+  }
+  
+  .form label .input {
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    font-size: 16px; /* Increased font size for inputs */
+  }
+  
+  .form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+  }
+  
+  .form label .input:focus,
+  .form label .input:valid {
+    border-color: #8a2be2; /* Purple border color on focus or valid */
+  }
+  
+  .form label .input:focus + span,
+  .form label .input:valid + span {
+    top: -10px;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: #8a2be2; /* Purple text color on focus or valid */
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 10px;
+    font-size: 0.9em;
+  }
+  
+  .form .answer-group {
+    margin-top: 20px; /* Increased margin between answer groups */
+  }
+  
+  .form .add-answer,
+  .form .add-question,
+  .form .fancy {
+    background-color: #8a2be2; /* Purple background color for buttons */
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Increased padding for buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, margin 0.3s ease; /* Added margin transition */
+    text-align: center;
+    display: block;
+    margin: 0 auto; /* Center the buttons */
+  }
+  
+  .form .add-answer:hover,
+  .form .add-question:hover,
+  .form .fancy:hover {
+    background-color: #6a1c9a; /* Darker purple on hover */
+    margin-top: 25px; /* Increased margin on hover */
+  }
+  
+  .form .fancy {
+    margin-top: 20px; /* Initial margin for submit button */
+  }
+  

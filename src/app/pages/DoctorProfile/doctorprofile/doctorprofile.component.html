@@ -1,0 +1,118 @@
+
+<div class="d-flex">
+  <div class="col-12 col-sm-2 col-lg-3 sideBar d-none d-lg-flex">
+    <app-doctor-sidebar></app-doctor-sidebar>
+
+  </div>
+  <div class="col-12 col-lg-8 mt-4 mainContent justify-content-center">
+    <div class="title">
+      <i class="fa-solid fa-arrow-left mx-auto"></i> {{ profileData.address }}
+      <h4>Doctor's Profile</h4>
+    </div>
+    <div class="profile">
+    <div class="DocProfileDetals">
+        <div>
+
+          <img [src]="getImageUrl()" alt="DoctorImage" class="DocProfilePic">
+          <input *ngIf="editMode" type="file" (change)="selectImage($event)" />
+        </div>
+
+        <div class="btns">
+
+          <button *ngIf="!editMode" class="btn d-none d-lg-block" (click)="toggleEditMode()">Edit</button>
+          <button *ngIf="editMode" class="btn d-none d-lg-block" (click)="saveChanges()">Save</button>
+          <button *ngIf="editMode" class="btn d-none d-lg-block" (click)="cancelEdit()">Cancel Edit</button>
+          <button class="btn d-flex text-align-baseline d-lg-none d-block">
+            <i class="fa-regular fa-calendar-check"></i>
+          </button>
+          <button class="d-none d-lg-block btn secBtn">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+      </div>
+    <div class="doctorTitel">
+        <h3>
+          <span *ngIf="!editMode">Dr. {{ profileData.firstName }} {{ profileData.lastName }}</span>
+          <span *ngIf="editMode">
+            Dr. <input [(ngModel)]="profileData.firstName" />
+            <input [(ngModel)]="profileData.lastName" />
+          </span>
+        </h3>
+        <h6 class="text-muted subTitel">
+          <span *ngIf="!editMode">{{ profileData.userName }}</span>
+          <span *ngIf="editMode"><input [(ngModel)]="profileData.userName" /></span>
+        </h6>
+        <p class="text-muted location">
+          <i class="fa-solid fa-location-dot"></i>
+          <span *ngIf="!editMode">{{ profileData.address }}</span>
+          <span *ngIf="editMode"><input [(ngModel)]="profileData.address" /></span>
+        </p>
+        <div class="rating d-flex">
+          <app-star-rating [averageRating]="profileData.averageRating"></app-star-rating>
+
+        </div>
+        <div class="mobile d-flex flex-wrap flex-lg-row">
+          <span class="thirdBtn">
+            Phone: <span *ngIf="!editMode">{{ profileData.phone }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.phone" /></span>
+          </span>
+          <span class="thirdBtn">
+            Gender: <span *ngIf="!editMode">{{ profileData.genderString }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.genderString" /></span>
+          </span>
+          <span class="thirdBtn">
+            Age: <span *ngIf="!editMode">{{ profileData.age }}</span>
+            <span *ngIf="editMode"><input [(ngModel)]="profileData.age" /></span>
+          </span>
+        </div>
+        <div class="dropdown">
+          <label for="patients">Select Patient:</label>
+          <select id="patients" [(ngModel)]="selectedPatientId" class="form-control" (change)="selectPatient(selectedPatientId)">
+            <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.fullName }}</option>
+          </select>
+        </div>
+      </div>
+     </div>
+
+    <div class="description">
+      <div class="doctorDesc mt-5">
+        <h5>About</h5>
+        <div *ngIf="!editMode">{{ profileData.worksIn }}</div>
+        <textarea *ngIf="editMode" [(ngModel)]="profileData.worksIn"></textarea>
+      </div>
+      <div class="doctorDesc">
+        <h5>Experience</h5>
+        <div *ngIf="!editMode">{{ profileData.history }}</div>
+        <textarea *ngIf="editMode" [(ngModel)]="profileData.history"></textarea>
+      </div>
+    </div>
+
+    <div class="availability doctorDesc ">
+      <h5 class="">Work Appointment:</h5>
+      <div *ngIf="!editMode">
+        <p *ngIf="workAppointment">Duration: {{ workAppointment.durationByMinutes }} minutes</p>
+        <p *ngIf="workAppointment">Start of Day: {{ workAppointment.startOfDay }}</p>
+        <p *ngIf="workAppointment">End of Day: {{ workAppointment.endOfDay }}</p>
+        <p *ngIf="!workAppointment">No work appointment available.</p>
+      </div>
+      <div *ngIf="editMode">
+        <label>
+          Duration (minutes):
+          <input type="number" [(ngModel)]="editedWorkAppointment.durationByMinutes" />
+        </label>
+        <label>
+          Start of Day:
+          <input type="time" [(ngModel)]="editedWorkAppointment.startOfDay" />
+        </label>
+        <label>
+          End of Day:
+          <input type="time" [(ngModel)]="editedWorkAppointment.endOfDay" />
+        </label>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+

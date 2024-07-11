@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+}
+
+.left {
+  flex: 3;
+  /* Adjust this value to control the width of the left column */
+
+  margin-right: 20px;
+  /* Space between the left and right columns */
+}
+
+.right {
+  margin: 20px;
+  flex: 1;
+  /* Adjust this value to control the width of the right column */
+}
+
+@media (max-width:840px) {
+  .filterRes {
+    display: block !important;
+  }
+
+  .filter {
+    display: none;
+  }
+
+}
+
+.filterRes {
+  width: fit-content;
+}

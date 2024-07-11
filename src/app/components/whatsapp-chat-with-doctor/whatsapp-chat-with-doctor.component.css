@@ -1,0 +1,219 @@
+.whatsapp-chat {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d1de; /* Ensure the background color is applied to the full page */
+  padding: 20px; /* Add padding to the edges */
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  gap: 0 5px;
+  justify-content: left;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.mainContent {
+  padding: 5px;
+  z-index: 999;
+  max-width: 64.5rem; /* Set a max-width to prevent it from stretching too much */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px; /* Add padding to the edges */
+}
+
+.mainContent .profile {
+  margin-top: 5px;
+  background-color: #ffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  height: auto;
+}
+
+.mainContent .profile .DocProfilePic {
+  width: 8rem;
+  height: 8rem;
+  border: 3px solid #c2c0c9;
+  border-radius: 50%;
+  object-fit: cover; /* Ensure the image fits within the circular frame */
+}
+
+.DocProfileDetals {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.btn {
+  height: 2.5rem;
+  text-align: center;
+  background-color: var(--dark-blue);
+  color: #ffff;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.secBtn {
+  height: 2.5rem;
+  background-color: #c5c4cd;
+  color: var(--dark-blue);
+}
+
+.doctorTitel {
+  margin-top: 15px;
+}
+
+.subTitel {
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.location {
+  color: #333;
+}
+
+.thirdBtn {
+  background-color: #a7a4b6;
+  color: var(--dark-blue);
+  padding: 10px 1rem;
+  margin: 0.7rem;
+  border-radius: 1rem;
+}
+
+.thirdBtn:hover,
+.thirdBtn:focus {
+  border: 1px solid var(--dark-blue);
+  background-color: #ffff;
+  transition: 0.3s ease-in-out;
+}
+
+.avTitle {
+  font-size: 1.2rem;
+  padding-left: 25px;
+}
+
+.doctorDesc {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.avaliablity, .doctorDesc {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #ffff;
+  border: 1px solid #a7a4b6;
+  border-radius: 15px;
+  padding: 15px 40px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  height: auto;
+}
+
+.rating {
+  gap: 10px;
+}
+
+.doctoravaliablity {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #ffff;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+}
+
+.calender {
+  font-size: 1rem;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  align-content: center;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 5px;
+}
+
+@media (max-width: 991.98px) {
+  .sideBar {
+    display: none;
+  }
+
+  .DocProfilePic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btns button {
+    padding: 10px;
+    font-size: 0.875rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1368px) {
+  .sideBar {
+    display: none;
+    visibility: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mainContent {
+    margin-left: 25px;
+  }
+}
+
+
+.calendar {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.calendar strong {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.calendar div {
+  margin: 5px 0;
+}
+
+.ProfilePic {
+  width: 200px; /* Adjust the size as needed */
+  height: 200px; /* Adjust the size as needed */
+  border-radius: 50%;
+}

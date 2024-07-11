@@ -1,0 +1,30 @@
+<h1>Here is your Questions</h1>
+<section class="questionsSection" *ngIf="test && TestQuestionAndAnswersOBJ">
+    <div class="container">
+      <div class="text-center py-5 fw-bolder text-secondary text-uppercase">
+        <h1>This is a test for story {{ test!.title }}</h1>
+      </div>
+  
+      <div class="quizBox m-4">
+        <div class="question mb-3" *ngFor="let question of test.testAnswerQuestions; let i = index">
+          <div class="questionHead">
+            <h2 class="fw-bolder fs-3 my-2">Question {{ i + 1 }}</h2>
+            <p class="lead my-5 fw-semibold bg-purpel p-4 rounded-2 text-white">{{ question.question }}</p>
+          </div>
+  
+          <div class="row g-2">
+            <div *ngFor="let option of question.answers; let j = index"
+                class="optionBody p-3 text-secondary mb-4 rounded-2 d-flex justify-content-between align-items-center col-lg-5 offset-1 m-auto"
+                (click)="selectOption(i, option)">
+              <label for="option{{ i }}{{ j }}" class="text-secondary">{{ option }}</label>
+              <input type="radio" id="option{{ i }}{{ j }}" name="options{{ i }}" [value]="option"
+                    [(ngModel)]="selectedOptions[i]" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <button type="button" class="btn main-border btnUnderstand clr" (click)="submitAnswers()">Submit</button>
+    </div>
+  </section>
+  

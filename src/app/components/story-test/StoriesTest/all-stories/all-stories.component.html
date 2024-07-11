@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 mb-3" *ngFor="let story of stories">
+      <div class="card">
+        <div class="card-image" *ngIf="story.storyImageUrl" [ngStyle]="{'background-image': 'url(' + picURl + '/' + story.storyImageUrl + ')'}"></div>
+        <div class="card-description center textColor ">
+          <p class="clrr ">{{ story.storyDescription }}</p>
+          <p class=" clrr  ">Degree: {{ story.storyDegree }}</p>
+          <button class="p-2 rounded-2 main-border back-button clr  " (click)="takeTest(story.storyId)">Take Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

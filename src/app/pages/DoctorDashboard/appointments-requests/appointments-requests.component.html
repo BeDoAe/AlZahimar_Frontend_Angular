@@ -1,0 +1,46 @@
+<div class="d-flex">
+  <div class="col-12 col-md-4 col-lg-4 appontRequest">
+    <div class="title d-flex justify-content-between">
+      <p>Appointments Requests</p>
+      <a class="d-flex align-items-center appontRequest-text" routerLink="/all-requests">
+        <p>View All</p>
+        <i class="fa-solid fa-chevron-right"></i>
+      </a>
+    </div>
+  
+    <!-- Display error message if any -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Display message if no patient requests are found -->
+    <div *ngIf="Appointments.length === 0 && !errorMessage">
+      No patient requests found.
+    </div>
+  
+    <!-- Loop through the patients array and display each patient's details -->
+    <ng-container *ngFor="let appointment of filterAppointments; let i = index">
+      <div class="d-flex my-3 justify-content-between">
+        <div class="Patient gap-3">
+          <div class="pateintImage">
+            <img *ngIf="appointment.picUrl; else pictureNotFound" [src]="environment + '/' + appointment.picUrl" alt="Patient Image">
+            <ng-template #pictureNotFound>
+              <img  src="../../../../assets/doctor2.PNG" alt="Patient Image">
+            </ng-template>
+          </div>
+          <div class="pateintDetails">
+            <p>{{ appointment.fullName }}</p>
+            <span>{{ appointment.age }}  {{appointment.EndTime}} {{ appointment.gender }} {{ appointment.date | date: 'EEE, MMM d, h:mm a' }}</span>
+            <h1>{{ appointment.startTime | date: 'h:mm a' }}</h1>
+            <h5>{{appointment.EndTime}}</h5>
+          </div>  
+        </div>
+        <div class="my-3">
+        <!-- <a type="button" class="btn btn-primary p-2 mx-3 rounded-pill buttonColor" (click)="patientDetails(appointment.patientId)">Details</a> -->
+        <a type="button" class="btn btn-success p-2 mx-3 rounded-pill buttonColor" (click)="confirmRequest(appointment.id)">Accept</a>
+        <a type="button" class="btn btn-danger p-2 mx-1 rounded-pill buttonColor" (click)="rejectRequest(appointment.id)">Decline</a>
+      </div>
+      </div>
+    </ng-container>
+  </div>
+  </div>  

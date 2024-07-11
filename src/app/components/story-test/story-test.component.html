@@ -1,0 +1,91 @@
+<!-- story-test.component.html -->
+<!-- <section class="storyTest d-flex align-items-center justify-content-center position-relative">
+  <!--
+   Audio player container 
+  <div class="storyContainer container main-border">
+    <i class="fa-solid fa-info" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+
+    <h1>{{ storyTest?.storyId }}</h1>
+    <img *ngIf="storyTest?.storyImageUrl" [src]="Pic_Sound_URl + storyTest?.storyImageUrl" class="img-fluid mb-3" alt="Story Image">
+    <p>{{ storyTest?.storyDescription }}</p>
+
+    <audio id="audioPlayer" controls controlsList="nodownload" *ngIf="storyTest?.storySoundPath">
+      <source [src]="Pic_Sound_URl + storyTest?.storySoundPath" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+ <!--
+  Button to show the modal and play the audio 
+  <div class="btnTest m-2">
+    <button type="button" class="btn bg-purple btnUnderstand text-white border border-dark" (click)="openModal(attentionModal)">
+      Play Audio
+    </button>
+  </div>
+
+  <!-- Button to navigate to questions 
+  <div class="btnTest mx-2 mb-1">
+    <button type="button" class="btn btn-danger bg-purple btnUnderstand text-white" (click)="goToQuestions(storyTest?.storyId)">
+      Go to Questions
+    </button>
+  </div>
+</section> -->
+
+<!-- Modal for warning -->
+<!-- <ng-template #attentionModal>
+  <div class="modal-header">
+    <h4 class="modal-title">Attention!</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+  </div>
+  <div class="modal-body">
+    <p>You can play the audio only once. After listening, click the button that will navigate you to answer the questions.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="playAudioOnce()">I understand</button>
+  </div>
+</ng-template> -->
+
+<!-- story-test.component.html -->
+<!-- story-test.component.html -->
+
+
+<section class="storyContainer">
+  <div class="container">
+    <h2 class="text-center">{{ storyTest?.storyDescription }}</h2>
+
+    <div class="imgTest main-border rounded-circle m-auto overview-hidden" 
+         [ngStyle]="{'background-image': 'url(' + Pic_Sound_URl + '/' + storyTest?.storyImageUrl + ')'}">
+      <!-- <img *ngIf="storyTest?.storyImageUrl" [src]="Pic_Sound_URl + storyTest?.storyImageUrl" 
+           class="rounded-circle inner-image" alt="Story Image"> -->
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="btnTest m-2 w-50">
+      <button type="button" class="btn border border-dark w-50 clr clrr" (click)="openModal(attentionModal)">
+        Play Audio
+      </button>
+    </div>
+
+    <div class="btnTest mx-2 mb-1 w-50">
+      <button type="button" class="p-2 border-0 rounded-2 QuestionsBtn text-white w-50 clr clrr" 
+              (click)="goToQuestions(storyTest?.storyId)">
+        Go to Questions
+      </button>
+    </div>
+  </div>
+</section>
+
+<ng-template #attentionModal>
+  <div class="modal-header">
+    <h4 class="modal-title">
+      Attention! <img src="../../../assets/jpeg/warning_2797388.png" alt="" width="10%">
+    </h4>
+    <button type="button" class="btn-close clr clrr" aria-label="Close" (click)="dismissModal()"></button>
+  </div>
+  <div class="modal-body">
+    <p>You can play the audio only once. After listening, click the button to navigate to answer the questions.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn clr clrr" (click)="playAudioOnce()">I understand</button>
+  </div>
+</ng-template>

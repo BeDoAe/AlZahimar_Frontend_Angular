@@ -1,0 +1,11 @@
+<div class="CardGame" (click)="onClick()">
+  <div class="Card" [class.clicked]="card.clicked" [class.matched]="card.matched">
+    <div class="front">
+      <img class="img-fluid" src="/assets/images/memorycards/q7.jpg" />
+    </div>
+    <div class="back">
+      <img class="img-fluid" [src]="'/assets/images/memorycards/' + card.fruit + '.jpg'" />
+    </div>
+  </div>
+</div>
+

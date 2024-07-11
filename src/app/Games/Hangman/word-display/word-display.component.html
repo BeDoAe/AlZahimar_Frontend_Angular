@@ -1,0 +1,5 @@
+<ul class="word-disply">
+  <li *ngFor="let letter of wordArray" class="letter" [class.guessed]="correctLetters.includes(letter)">
+    {{ correctLetters.includes(letter) ? letter : '_' }}
+  </li>
+</ul>

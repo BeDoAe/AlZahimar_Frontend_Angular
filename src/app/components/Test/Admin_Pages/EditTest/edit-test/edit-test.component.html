@@ -1,0 +1,90 @@
+<!-- <div class="container">
+    <form [formGroup]="editTestForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="flex">
+        <label>
+          <input formControlName="title" placeholder="Title" type="text" class="input">
+        </label>
+  
+        <label>
+          <input formControlName="testDegree" placeholder="Degree Test" type="number" class="input">
+        </label>
+      </div>
+  
+      <div formArrayName="testAnswerQuestions">
+        <div *ngFor="let question of editTestForm.get('testAnswerQuestions').controls; let i = index" [formGroupName]="i" class="question-group">
+          <label>
+            <input formControlName="Question" placeholder="Question {{ i + 1 }}" type="text" class="input">
+          </label>
+  
+          <div formArrayName="Answers">
+            <div *ngFor="let answer of question.get('Answers').controls; let j = index" class="answer-group">
+              <label>
+                <input [formControlName]="j" placeholder="Answer {{ j + 1 }}" type="text" class="input">
+              </label>
+            </div>
+          </div>
+  
+          <label>
+            <input formControlName="CorrectAnswer" placeholder="Correct Answer" type="text" class="input">
+          </label>
+        </div>
+      </div>
+  
+      <button type="submit" class="fancy">
+        <span class="top-key"></span>
+        <span class="text">Submit</span>
+        <span class="bottom-key-1"></span>
+        <span class="bottom-key-2"></span>
+      </button>
+    </form>
+  </div>
+   -->
+   <div class="container">
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="flex">
+        <label>
+          <input formControlName="Title" placeholder="" type="text" class="input">
+          <span>Title</span>
+        </label>
+  
+        <label>
+          <input formControlName="DegreeTest" placeholder="" type="number" class="input">
+          <span>Degree Test</span>
+        </label>
+      </div>
+  
+      <div formArrayName="TestAnswerQuestions">
+        <div *ngFor="let question of testAnswerQuestions.controls; let i = index" [formGroupName]="i" class="question-group">
+          <label>
+            <input formControlName="Question" placeholder="" type="text" class="input">
+            <span>Question {{ i + 1 }}</span>
+          </label>
+  
+          <div formArrayName="Answers">
+            <div *ngFor="let answer of getAnswersArray(i).controls; let j = index" class="answer-group">
+              <label>
+                <input [formControlName]="j" placeholder="" type="text" class="input">
+                <span>Answer {{ j + 1 }}</span>
+              </label>
+            </div>
+            <button type="button" (click)="addAnswer(i)" class="add-answer">Add Answer</button>
+          </div>
+  
+          <label>
+            <input formControlName="CorrectAnswer" placeholder="" type="text" class="input">
+            <span>Correct Answer</span>
+          </label>
+        </div>
+        <button type="button" (click)="addQuestion()" class="add-question">Add Question</button>
+      </div>
+  
+      <button type="submit " class="fancy">
+        <span class="top-key"></span>
+        <span class="text">Submit</span>
+        <span class="bottom-key-1"></span>
+        <span class="bottom-key-2"></span>
+      </button>
+    </form>
+  </div>
+  
+  

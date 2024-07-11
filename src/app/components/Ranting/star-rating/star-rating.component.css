@@ -1,0 +1,23 @@
+.rating-container {
+  display: flex;
+}
+
+.star-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.star {
+  fill: #666;
+  transition: fill 0.2s ease-in-out;
+  width: 30px;
+  height: 30px;
+}
+
+.star.filled {
+  fill:  #ffeb49;
+}
+
+.star:hover {
+  fill: #ffeb49;
+}
